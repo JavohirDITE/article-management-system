@@ -25,7 +25,7 @@ CREATE TABLE articles (
 
 -- Insert sample data
 INSERT INTO articles (title, author) VALUES
-    ('PHP 8.5 - Yangi imkoniyatlar', 'Javohir Dilmurodov'),
+    ('PHP 8.5 - Yangi imkoniyatlar', 'Javohir Zokirjonov'),
     ('MySQL Query Optimization Tips', 'John Smith'),
     ('Веб-разработка для начинающих', 'Иван Петров'),
     ('Modern Web Development with MVC', 'Sarah Johnson'),

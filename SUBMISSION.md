@@ -175,7 +175,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
 ## 🎓 О себе / Men haqimda / About Me
 
-**Javohir Dilmurodov**
+**Javohir Zokirjonov**
 - 💻 PHP Developer
 - 📧 GitHub: [@JavohirDITE](https://github.com/JavohirDITE)
 - 🎯 Опыт работы с: PHP, MySQL, JavaScript, HTML/CSS
@@ -206,7 +206,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 Надеюсь, моя работа вам понравится! 
 
 С уважением,  
-**Javohir Dilmurodov**
+**Javohir Zokirjonov**
 
 ---
 

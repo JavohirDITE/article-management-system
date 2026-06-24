@@ -222,7 +222,7 @@ Database connection failed
 
 ## 👨‍💻 Автор / Muallif / Author
 
-**Javohir Dilmurodov**
+**Javohir Zokirjonov**
 - GitHub: [@JavohirDITE](https://github.com/JavohirDITE)
 - Email: javohir@example.com
 
