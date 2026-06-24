@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= Language::get('title') ?></title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Language Switcher -->
-        <div class="language-switcher">
-            <?php foreach (Language::getAvailableLanguages() as $code => $name): ?>
-                <a href="?lang=<?= $code ?>" 
-                   class="lang-btn <?= Language::getCurrentLanguage() === $code ? 'active' : '' ?>">
-                    <?= $name ?>
-                </a>
-            <?php endforeach; ?>
-        </div>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <?php foreach (Language::getAvailableLanguages() as $code => $name): ?>
+            <a href="?lang=<?= $code ?>" 
+               class="lang-btn <?= Language::getCurrentLanguage() === $code ? 'active' : '' ?>">
+                <?= $name ?>
+            </a>
+        <?php endforeach; ?>
+    </div>
 
+    <div class="container">
+        <!-- Header -->
         <header>
-            <h1><i class="fas fa-newspaper"></i> <?= Language::get('title') ?></h1>
+            <h1><?= Language::get('title') ?></h1>
+            <p><?= Language::get('articles_list') ?></p>
         </header>
 
         <!-- Message Display -->
@@ -33,9 +34,9 @@
         <?php endif; ?>
 
         <!-- Add Article Form -->
-        <section class="add-section">
-            <h2><i class="fas fa-plus-circle"></i> <?= Language::get('add_article') ?></h2>
-            <form method="POST" action="index.php" class="add-form">
+        <section>
+            <h2><i class="fas fa-plus"></i> <?= Language::get('add_article') ?></h2>
+            <form method="POST" action="index.php">
                 <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                 <input type="hidden" name="action" value="add">
                 
@@ -70,7 +71,7 @@
         </section>
 
         <!-- Search Section -->
-        <section class="search-section">
+        <section>
             <h2><i class="fas fa-search"></i> <?= Language::get('search') ?></h2>
             <form method="GET" action="index.php" class="search-form">
                 <input type="text" 
@@ -89,7 +90,7 @@
         </section>
 
         <!-- Articles List -->
-        <section class="list-section">
+        <section>
             <h2><i class="fas fa-list"></i> <?= Language::get('articles_list') ?></h2>
             
             <?php if (empty($articles)): ?>
@@ -125,7 +126,7 @@
                                             <input type="hidden" name="action" value="delete">
                                             <input type="hidden" name="id" value="<?= $article['id'] ?>">
                                             <button type="submit" class="btn btn-danger">
-                                                <i class="fas fa-trash"></i> <?= Language::get('delete') ?>
+                                                <i class="fas fa-trash"></i>
                                             </button>
                                         </form>
                                     </td>
@@ -138,7 +139,7 @@
         </section>
 
         <footer>
-            <p>&copy; <?= date('Y') ?> Article Management System | Created by Javohir</p>
+            <p>&copy; <?= date('Y') ?> <?= Language::get('title') ?></p>
         </footer>
     </div>
 
