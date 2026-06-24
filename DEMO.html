@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Management System - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-header {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .demo-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .demo-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .features {
+            padding: 60px 40px;
+            background: #f8fafc;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #2563eb;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            padding: 60px 40px;
+            background: white;
+        }
+
+        .tech-stack h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #2563eb;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+        }
+
+        .tech-item strong {
+            display: block;
+            font-size: 1.2rem;
+            color: #2563eb;
+            margin-bottom: 5px;
+        }
+
+        .security {
+            padding: 60px 40px;
+            background: #f8fafc;
+        }
+
+        .security h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ef4444;
+        }
+
+        .security-list {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .security-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1.1rem;
+        }
+
+        .security-list li:last-child {
+            border-bottom: none;
+        }
+
+        .links {
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .links h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .link-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background: white;
+            color: #2563eb;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            padding: 40px;
+            text-align: center;
+            background: #1e293b;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .demo-header h1 {
+                font-size: 2rem;
+            }
+
+            .demo-header p {
+                font-size: 1rem;
+            }
+
+            .features h2, .tech-stack h2, .security h2, .links h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- Header -->
+        <div class="demo-header">
+            <h1>📰 Article Management System</h1>
+            <p>Professional multi-language CMS with advanced security</p>
+            <p style="margin-top: 10px; font-size: 1rem;">🌍 O'zbekcha • Русский • English</p>
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <h2>✨ Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">➕</div>
+                    <h3>Add Articles</h3>
+                    <p>Easy-to-use form for adding articles with title and author fields</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Articles List</h3>
+                    <p>Beautiful table view with ID, title, author, and creation date</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Search Function</h3>
+                    <p>Real-time search by article title with highlighting</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗑️</div>
+                    <h3>Delete Articles</h3>
+                    <p>Safe deletion with confirmation dialog</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Multi-language</h3>
+                    <p>Full support for Uzbek, Russian, and English languages</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Works perfectly on desktop, tablet, and mobile devices</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Security First</h3>
+                    <p>Protected against SQL Injection, XSS, and CSRF attacks</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Performance</h3>
+                    <p>Optimized database queries with proper indexing</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Modern UI</h3>
+                    <p>Beautiful animations and smooth user experience</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tech-stack">
+            <h2>🛠️ Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>Backend</strong>
+                    <p>PHP 8+</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Database</strong>
+                    <p>MySQL 5.7+</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Architecture</strong>
+                    <p>MVC Pattern</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Security</strong>
+                    <p>PDO Prepared Statements</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Frontend</strong>
+                    <p>JavaScript ES6+</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Styling</strong>
+                    <p>CSS3 Flexbox/Grid</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security -->
+        <div class="security">
+            <h2>🔒 Security Features</h2>
+            <div class="security-list">
+                <ul style="list-style: none;">
+                    <li>✅ SQL Injection Protection (Prepared Statements)</li>
+                    <li>✅ XSS Attack Prevention (htmlspecialchars)</li>
+                    <li>✅ CSRF Token Validation</li>
+                    <li>✅ Input Sanitization & Validation</li>
+                    <li>✅ Security Headers (.htaccess)</li>
+                    <li>✅ Session Security</li>
+                    <li>✅ Error Handling</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Links -->
+        <div class="links">
+            <h2>🔗 Project Links</h2>
+            <div class="link-buttons">
+                <a href="https://github.com/JavohirDITE/article-management-system" class="btn" target="_blank">
+                    📂 GitHub Repository
+                </a>
+                <a href="https://github.com/JavohirDITE/article-management-system/blob/master/README.md" class="btn" target="_blank">
+                    📖 Documentation
+                </a>
+                <a href="https://github.com/JavohirDITE/article-management-system/blob/master/INSTALL.md" class="btn" target="_blank">
+                    🚀 Installation Guide
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Created by Javohir Dilmurodov</strong></p>
+            <p style="margin-top: 10px; opacity: 0.8;">
+                Professional PHP Developer | GitHub: @JavohirDITE
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9rem;">
+                Made with ❤️ for demonstrating professional PHP development skills
+            </p>
+        </div>
+    </div>
+</body>
+</html>
