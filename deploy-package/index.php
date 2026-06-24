@@ -17,7 +17,7 @@ ini_set('display_errors', 1);
 
 // Autoload classes
 spl_autoload_register(function ($class) {
-    $file = __DIR__ . '/classes/' . $class . '.php';
+    $file = __DIR__ . '/../classes/' . $class . '.php';
     if (file_exists($file)) {
         require_once $file;
     }

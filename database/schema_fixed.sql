@@ -1,10 +1,9 @@
 -- ============================================
 -- Article Management System - Database Schema
--- Sistema de gestión de artículos - Esquema de base de datos
--- Maqolalar boshqaruv tizimi - Ma'lumotlar bazasi sxemasi
+-- For InfinityFree hosting
 -- ============================================
 
--- Drop table if exists (for clean installation)
+-- Drop table if exists
 DROP TABLE IF EXISTS articles;
 
 -- Create articles table
@@ -22,9 +21,9 @@ CREATE TABLE articles (
 ) ENGINE=InnoDB 
   DEFAULT CHARSET=utf8mb4 
   COLLATE=utf8mb4_unicode_ci
-  COMMENT='Table for storing articles with multi-language support';
+  COMMENT='Table for storing articles';
 
--- Insert sample data (optional - remove if not needed)
+-- Insert sample data
 INSERT INTO articles (title, author) VALUES
     ('PHP 8.5 - Yangi imkoniyatlar', 'Javohir Dilmurodov'),
     ('MySQL Query Optimization Tips', 'John Smith'),

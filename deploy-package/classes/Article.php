@@ -76,8 +76,9 @@ class Article
      */
     private function sanitizeInput(string $input): string
     {
-        // Remove HTML tags but keep quotes and special chars
+        // Remove HTML tags and encode special characters
         $input = strip_tags($input);
+        $input = htmlspecialchars($input, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         
         return trim($input);
     }

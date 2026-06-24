@@ -1,11 +1,7 @@
 <?php
 /**
  * Main Application File - Article Management System
- * Главный файл приложения - Система управления статьями
- * Asosiy fayl - Maqolalar boshqaruv tizimi
- * 
- * @author Javohir
- * @version 1.0.0
+ * Fixed version for InfinityFree hosting
  */
 
 // Start session
@@ -15,13 +11,10 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Autoload classes
-spl_autoload_register(function ($class) {
-    $file = __DIR__ . '/classes/' . $class . '.php';
-    if (file_exists($file)) {
-        require_once $file;
-    }
-});
+// Autoload classes - FIXED for InfinityFree
+require_once __DIR__ . '/classes/Database.php';
+require_once __DIR__ . '/classes/Article.php';
+require_once __DIR__ . '/classes/Language.php';
 
 // Initialize language system
 Language::init();
@@ -114,4 +107,4 @@ try {
 }
 
 // Include view
-include __DIR__ . '/../views/main.php';
+include __DIR__ . '/views/main.php';
